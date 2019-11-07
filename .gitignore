@@ -1,0 +1,4 @@
+# Docker ENV files
+*.env
+.env
+env
