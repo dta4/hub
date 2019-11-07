@@ -1,0 +1,54 @@
+name: 'Dockerize'
+author: 'Andreas Schulze'
+branding:
+  icon: 'anchor'
+  color: 'blue'
+description: 'Docker build, tag and push containers to GitHub and DockerHub'
+inputs:
+  image:
+    description: 'Name of the image'
+    required: false
+  context:
+    description: 'Build context of the image'
+    required: false
+    default: '.'
+  username:
+    description: 'Username for GitHub and DockerHub registry'
+    required: false
+  github_token:
+    description: 'Token for Github registry'
+    required: false
+  docker_token:
+    description: 'Token for DockerHub registry'
+    required: false
+  owner:
+    description: 'Owner of GitHub and DockerHub registry'
+    required: false
+  github_repository:
+    description: 'Repository of GitHub registry'
+    required: false
+  docker_repository:
+    description: 'Repository of DockerHub registry'
+    required: false
+  image_suffixing:
+    description: 'Append image name to DockerHub tag'
+    required: false
+  publish:
+    description: 'Enable pushing to GitHub and DockerHub'
+    required: false
+  github_registry:
+    description: 'GitHub registry'
+    required: false
+    default: 'docker.pkg.github.com'
+  docker_registry:
+    description: 'DockerHub registry'
+    required: false
+    default: 'docker.io'
+outputs:
+  docker-tag:
+    description: 'Tag which was pushed to DockerHub'
+  docker-github-tag:
+    description: 'Tag which was pushed to GitHub'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
